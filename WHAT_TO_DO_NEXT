@@ -1,0 +1,15 @@
+1. write script in "package.json" that npm start to run web app and server
+
+2. multi users
+    1) an ID for client
+    2) match_code for people to match up with each other
+
+3. better logger
+
+4. mode: sync or not
+
+5. messages: "you two are off by... "
+             "XXX pauses"
+             "XXX has a bad network, waiting for her to load"
+
+6. an input of video link (MO MO MO MOST IM IM IMPORTANT)
