@@ -16,6 +16,7 @@ const io = socketIO(server);
 // This is what the socket.io syntax is like, we will work this later
 io.on('connection', socket => {
   let last_seek_time = 0;
+  let youtube_last_seek_time = 0;
   console.log('User connected');
 
   socket.on('disconnect', () => {
@@ -30,13 +31,28 @@ io.on('connection', socket => {
       console.log('SERVER ask everyone to seek to', time);
     }
   });
-
   socket.on('pause', (pause) => {
     io.sockets.emit('pause', pause);
     console.log('SERVER ask everyone to ', pause ? 'pause' : 'play');
   });
 
 
+
+  // TODO: for youtube, the current one
+  socket.on('youtube pause', () => {
+    io.sockets.emit('youtube pause');
+    console.log('SERVER ask everyone to pause');
+  });
+  socket.on('youtube play/seek', (time) => {
+    if (youtube_last_seek_time !== time){
+      io.sockets.emit('youtube play/seek', time);
+      console.log('SERVER ask everyone to seek/play at', time);
+    }
+  });
+  socket.on('youtube url', (url) => {
+    io.sockets.emit('youtube url', url);
+    console.log('SERVER ask everyone to load url: ', url);
+  });
 
 })
 
