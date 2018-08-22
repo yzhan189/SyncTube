@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import WelcomePage from './pages/welcome.js';
 import VideoPage from './pages/video.js';
+import { Divider } from 'semantic-ui-react';
 
 import logo from './logo.svg';
 import './App.css';
@@ -38,6 +39,7 @@ class App extends Component {
         <header className="App-header">
           <img src={logo} className="App-logo" alt="logo" />
           <h1 className="App-title">我真是个小天才呀！</h1>
+          <Divider inverted section />
         </header>
 
         {this.state.joined ? <VideoPage roomCode={this.state.roomCode}/>: <WelcomePage join_a_room={this.join_a_room}/>}

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import socketIOClient from 'socket.io-client';
-import { Input, Form, Segment } from 'semantic-ui-react';
+import { Input, Form, Segment, Statistic } from 'semantic-ui-react';
 
 import ReactPlayer from 'react-player';
 
@@ -71,7 +71,6 @@ class VideoPage extends Component {
     socket.on('room joined', (clientsNum) => {
       if (clientsNum!=this.state.clientsNum){
         this.setState({ clientsNum: clientsNum});
-        window.alert('Someone joined this room. Total number of client: '+clientsNum);
       }
     });
 
@@ -102,6 +101,10 @@ class VideoPage extends Component {
           <Form inverted onSubmit={this.handleSubmit}>
             <Input fluid label="Put Youtube link here: " type="text" value={this.state.url} onChange={this.handleChange} action="走起"/>
           </Form>
+          <Statistic inverted >
+            <Statistic.Value>{this.state.clientsNum}</Statistic.Value>
+            <Statistic.Label>Watching Now</Statistic.Label>
+          </Statistic>
         </Segment>
 
         <ReactPlayer

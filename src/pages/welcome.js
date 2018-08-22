@@ -52,7 +52,7 @@ class WelcomePage extends Component {
 
   render() {
     return (
-        <Card.Group>
+        <Card.Group centered>
           <Card>
             <Card.Content>
               <Card.Header>Start a new room</Card.Header>
