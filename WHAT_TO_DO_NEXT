@@ -1,4 +1,3 @@
-1. write script in "package.json" that npm start to run web app and server
 
 2. multi users
     1) an ID for client
@@ -12,8 +11,13 @@
              "XXX pauses"
              "XXX has a bad network, waiting for her to load"
 
-6. an input of video link (MO MO MO MOST IM IM IMPORTANT)
+7. look NICER
 
+8. retrieve info from youtube api
+
+9 pause: go find the previous one
+
+10 message in website
 
 SOME_NOTE:
 // Player does not synchronize if they don't start form same place

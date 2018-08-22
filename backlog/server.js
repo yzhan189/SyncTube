@@ -20,27 +20,13 @@ let UserList = new Set();
 // user id
 
 // This is what the socket.io syntax is like
-// this socket is the client socket
 io.on('connection', socket => {
   let last_seek_time = 0;
   let youtube_last_seek_time = 0;
-  let this_room_code = '';
   console.log('User connected');
 
   socket.on('disconnect', () => {
     console.log('user disconnected');
-  });
-
-  socket.on('join room', (roomCode) => {
-    this_room_code = roomCode;// io.sockets.adapter.sids[socket.id]
-
-    // each user can only join one room, so leave all before joining one
-    socket.leaveAll();
-    socket.join(this_room_code);
-    const clientsNum = io.sockets.adapter.rooms[this_room_code].length;
-    io.to(this_room_code).emit('room joined', clientsNum);
-
-    console.log('SERVER let sb. join room', this_room_code);
   });
 
   socket.on('seek', (time) => {
@@ -60,17 +46,17 @@ io.on('connection', socket => {
 
   // TODO: for youtube, the current one
   socket.on('youtube pause', () => {
-    io.to(this_room_code).emit('youtube pause');
+    io.sockets.emit('youtube pause');
     console.log('SERVER ask everyone to pause');
   });
   socket.on('youtube play/seek', (time) => {
     if (youtube_last_seek_time !== time){
-      io.to(this_room_code).emit('youtube play/seek', time);
+      io.sockets.emit('youtube play/seek', time);
       console.log('SERVER ask everyone to seek/play at', time);
     }
   });
   socket.on('youtube url', (url) => {
-    io.to(this_room_code).emit('youtube url', url);
+    io.sockets.emit('youtube url', url);
     console.log('SERVER ask everyone to load url: ', url);
   });
 
