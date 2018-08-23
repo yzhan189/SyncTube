@@ -45,6 +45,7 @@ class App extends Component {
         {this.state.joined ? <VideoPage roomCode={this.state.roomCode}/>: <WelcomePage join_a_room={this.join_a_room}/>}
 
       </div>
+
     );
   }
 

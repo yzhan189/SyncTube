@@ -69,7 +69,7 @@ class VideoPage extends Component {
     });
 
     socket.on('room joined', (clientsNum) => {
-      if (clientsNum!=this.state.clientsNum){
+      if (clientsNum !== this.state.clientsNum){
         this.setState({ clientsNum: clientsNum});
       }
     });
