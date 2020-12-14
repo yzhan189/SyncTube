@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Card, Button, Form, Input } from 'semantic-ui-react';
+import { generate_room_code } from './helper.js';
 
 class WelcomePage extends Component {
   constructor(props) {
@@ -33,9 +34,10 @@ class WelcomePage extends Component {
   handle_generate_code (event) {
     this.setState({
       generated: true,
-      generatedRoomCode: Math.random().toString(36).substring(2)
+      generatedRoomCode: generate_room_code()
     });
   }
+
 
   handle_copy_code (event) {
     console.log('Welcome.js: try to copy to clipboard:', this.state.roomCode);

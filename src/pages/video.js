@@ -8,7 +8,8 @@ import "../../node_modules/video-react/dist/video-react.css";
 
 // const EXAMPLE_URL = 'https://www.youtube.com/watch?v=ysz5S6PUM-U';
 
-const SERVER_URL = 'https://watch-me-together.herokuapp.com:3700';
+const SERVER_URL = 'localhost:3700';
+//const SERVER_URL = 'https://watch-me-together.herokuapp.com:3700';
 
 class VideoPage extends Component {
 
@@ -24,7 +25,6 @@ class VideoPage extends Component {
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleChange = this.handleChange.bind(this);
   }
-
 
 
   // when starts playing or resuming
@@ -103,7 +103,7 @@ class VideoPage extends Component {
           </Form>
           <Statistic inverted >
             <Statistic.Value>{this.state.clientsNum}</Statistic.Value>
-            <Statistic.Label>Watching Now</Statistic.Label>
+            <Statistic.Label>Watching Now in Room {this.props.roomCode}</Statistic.Label>
           </Statistic>
         </Segment>
 

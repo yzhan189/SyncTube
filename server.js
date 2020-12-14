@@ -28,6 +28,9 @@ io.on('connection', socket => {
   console.log('User connected');
 
   socket.on('disconnect', () => {
+    const clientsNum = socket.client.conn.server.clientsCount;
+    io.to(this_room_code).emit('room joined', clientsNum);
+
     console.log('user disconnected');
   });
 
@@ -37,7 +40,8 @@ io.on('connection', socket => {
     // each user can only join one room, so leave all before joining one
     socket.leaveAll();
     socket.join(this_room_code);
-    const clientsNum = io.sockets.adapter.rooms[this_room_code].length;
+//const clientsNum = io.sockets.adapter.rooms[this_room_code].length;
+    const clientsNum = socket.client.conn.server.clientsCount;
     io.to(this_room_code).emit('room joined', clientsNum);
 
     console.log('SERVER let sb. join room', this_room_code);
