@@ -8,8 +8,8 @@ import "../../node_modules/video-react/dist/video-react.css";
 
 // const EXAMPLE_URL = 'https://www.youtube.com/watch?v=ysz5S6PUM-U';
 
-const SERVER_URL = 'localhost:3700';
-//const SERVER_URL = 'https://watch-me-together.herokuapp.com:3700';
+//const SERVER_URL = 'localhost:3700';
+const SERVER_URL = 'ws://watch-me-together.herokuapp.com';
 
 class VideoPage extends Component {
 
