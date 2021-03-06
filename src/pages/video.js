@@ -16,7 +16,7 @@ class VideoPage extends Component {
   constructor(props) {
     super(props);
     const socket = socketIOClient.connect(SERVER_URL); // connect to our server
-    console.log('Client construct socket of url ', SERVER_URL);
+    console.log('Client construct socket of url', SERVER_URL);
     this.state = {
       socket: socket,
       playing: false,
@@ -65,6 +65,7 @@ class VideoPage extends Component {
 
     // when client gets connected, send roomCode to server
     socket.on('connect', () => {
+      console.log("Client is connected");
       socket.emit('join room', this.props.roomCode);
       console.log('Client sends roomCode to server', this.props.roomCode);
     });
