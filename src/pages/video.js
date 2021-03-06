@@ -16,6 +16,7 @@ class VideoPage extends Component {
   constructor(props) {
     super(props);
     const socket = socketIOClient(SERVER_URL); // connect to our server
+    console.log('Client construct socket of url ', SERVER_URL);
     this.state = {
       socket: socket,
       playing: false,

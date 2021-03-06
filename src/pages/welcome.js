@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Card, Button, Form, Input } from 'semantic-ui-react';
+import { Card, Button, Input } from 'semantic-ui-react';
 import { generate_room_code } from './helper.js';
 
 class WelcomePage extends Component {
