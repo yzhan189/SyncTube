@@ -9,13 +9,13 @@ import "../../node_modules/video-react/dist/video-react.css";
 // const EXAMPLE_URL = 'https://www.youtube.com/watch?v=ysz5S6PUM-U';
 
 //const SERVER_URL = 'localhost:3700';
-const SERVER_URL = 'ws://watch-me-together.herokuapp.com:80'; // 80  is what heroku listens to
+const SERVER_URL = 'ws://watch-me-together.herokuapp.com'; // 80  is what heroku listens to
 
 class VideoPage extends Component {
 
   constructor(props) {
     super(props);
-    const socket = socketIOClient(SERVER_URL); // connect to our server
+    const socket = socketIOClient.connect(SERVER_URL); // connect to our server
     console.log('Client construct socket of url ', SERVER_URL);
     this.state = {
       socket: socket,
